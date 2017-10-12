@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import UserSearch from "./UserSearch";
+import UserList from './UserList';
 import { connect } from "react-redux";
 import * as actions from "../actions/userSearchActions";
 import { bindActionCreators } from "redux";
@@ -28,7 +29,20 @@ class UserSearchContainer extends Component {
 
   render() {
     const {firstName, lastName} = this.state;
-    return <UserSearch onSearch={this.handleSearchRequest} onChange={this.handleChange} firstName={firstName} lastName={lastName} />
+    const {users} = this.props;
+
+    return (
+      <div>
+        <UserSearch
+          onSearch={this.handleSearchRequest}
+          onChange={this.handleChange}
+          firstName={firstName}
+          lastName={lastName}
+        />
+
+        {users.length > 0 && <UserList users={users} />}
+      </div>
+    )
   }
 }
 

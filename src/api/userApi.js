@@ -1,6 +1,6 @@
 export function search(searchCriteria) {
   var myInit = {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Accept: 'application/json',
       Authorization: 'Basic Z2tlZXBlcjpna2VlcGVy',
@@ -8,12 +8,11 @@ export function search(searchCriteria) {
       "Content-Type":'application/json'
     },
     credentials: 'include',
-    cache: 'default',
-    body: JSON.stringify(searchCriteria)
+    cache: 'default'
+    //body: JSON.stringify(searchCriteria)
   };
 
-  return fetch('http://localhost:3000/Regatta/rest/searchService/findAppUsers', myInit).then( response => {
-    console.log(response);
-    return response;
+  return fetch('http://localhost:3002/users?q=' + searchCriteria.firstName, myInit).then( response => {
+    return response.json();
   })
 }
