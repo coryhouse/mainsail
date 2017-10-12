@@ -20,6 +20,7 @@ class UserSearch extends React.Component {
 }
 
 UserSearch.propTypes = {
+  onClear: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   firstName: PropTypes.string.isRequired,

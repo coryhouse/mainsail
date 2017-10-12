@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 2 empty search fields 1`] = `
+<form>
+  <label>
+    First Name
+  </label>
+  <input
+    className="uppercase"
+    name="firstName"
+    onChange={[Function]}
+    type="text"
+    value="Mark"
+  />
+  <label>
+    Last Name
+  </label>
+  <input
+    name="lastName"
+    onChange={[Function]}
+    type="text"
+    value="Longman"
+  />
+  <input
+    onClick={[Function]}
+    type="submit"
+    value="Search"
+  />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Clear
+  </button>
+</form>
+`;

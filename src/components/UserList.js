@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
-import { Table } from 'semantic-ui-react';
+import {Table} from 'semantic-ui-react';
+import { User } from '../types';
 
 class UserList extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class UserList extends React.Component {
       <div>
         <h2>{users.length} Search Results</h2>
 
-        <Table selectable="true" sortable="true" celled size="small">
+        <Table selectable={true} sortable={true} celled size="small">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>#</Table.HeaderCell>
@@ -21,11 +22,10 @@ class UserList extends React.Component {
           <Table.Body>
             {users.map((user, index) => {
               const fullName = user.firstName + " " + user.lastName;
-              console.log(fullName);
               return (
                 <Table.Row key={user.userID}>
-                  <Table.Cell>{index+1}.</Table.Cell>
-                  <Table.Cell>{user.lastName.startsWith('F') ? <a href='#'>{fullName}</a> : fullName}</Table.Cell>
+                  <Table.Cell>{index + 1}.</Table.Cell>
+                  <Table.Cell>{user.lastName.startsWith('F') ? <a href=''>{fullName}</a> : fullName}</Table.Cell>
                   <Table.Cell>{user.emailAddress}</Table.Cell>
                 </Table.Row>
               )
@@ -38,7 +38,7 @@ class UserList extends React.Component {
 }
 
 UserList.propTypes = {
-  users: PropTypes.array.isRequired
+  users: PropTypes.arrayOf(User).isRequired
 };
 
 export default UserList;

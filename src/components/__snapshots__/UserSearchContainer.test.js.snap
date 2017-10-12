@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should hide userList when users do not exist 1`] = `
+<div>
+  <form>
+    <label>
+      First Name
+    </label>
+    <input
+      className="uppercase"
+      name="firstName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label>
+      Last Name
+    </label>
+    <input
+      name="lastName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <input
+      onClick={[Function]}
+      type="submit"
+      value="Search"
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Clear
+    </button>
+  </form>
+  <div>
+    <h2>
+      1
+       Search Results
+    </h2>
+    <table
+      className="ui small celled selectable sortable table"
+    >
+      <thead
+        className=""
+      >
+        <tr
+          className=""
+        >
+          <th
+            className=""
+          >
+            #
+          </th>
+          <th
+            className=""
+          >
+            Name
+          </th>
+          <th
+            className=""
+          >
+            Email
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className=""
+      >
+        <tr
+          className=""
+        >
+          <td
+            className=""
+          >
+            1
+            .
+          </td>
+          <td
+            className=""
+          >
+            Mark Longman
+          </td>
+          <td
+            className=""
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

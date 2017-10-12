@@ -1,16 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import UserSearch from "./UserSearch";
 import UserList from './UserList';
 import { connect } from "react-redux";
 import * as actions from "../actions/userSearchActions";
 import { bindActionCreators } from "redux";
+import PropTypes from 'prop-types';
+import { User } from '../types';
 
-class UserSearchContainer extends Component {
+export class UserSearchContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstName: 'FER%',
+      firstName: '',
       lastName: ''
     };
   }
@@ -50,6 +52,15 @@ class UserSearchContainer extends Component {
     )
   }
 }
+
+UserSearchContainer.propTypes = {
+  users: PropTypes.arrayOf(User).isRequired,
+  actions: PropTypes.shape(
+    {
+      searchUsers: PropTypes.func.isRequired
+    }
+  ).isRequired
+};
 
 // Connect specific Redux store data to component above
 function mapStateToProps(state) {
