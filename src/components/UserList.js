@@ -7,7 +7,7 @@ class UserList extends React.Component {
     return (
       <div>
         <h2>Search Results</h2>
-        <table>
+        <table cellPadding="10">
           <thead>
             <tr>
               <th>First Name</th>
@@ -17,7 +17,7 @@ class UserList extends React.Component {
           <tbody>
             {users.map(user => {
               return (
-                <tr>
+                <tr key={user.userID}>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
                 </tr>

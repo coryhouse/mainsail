@@ -21,9 +21,9 @@ class UserSearchContainer extends Component {
 
   handleSearchRequest = (event) => {
     event.preventDefault();
+    console.log(this.state.firstName);
     this.props.actions.searchUsers({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
+      firstName: this.state.firstName
     });
   };
 
