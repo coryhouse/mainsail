@@ -2,6 +2,7 @@
   "name": "tideworks",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://t-mq1-lt2-mvmqf.twlab.int:8080/",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -15,8 +16,10 @@
   "devDependencies": {
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
+    "enzyme-to-json": "^3.1.2",
     "nock": "^9.0.22",
     "prettier": "^1.7.4",
+    "prop-types": "^15.6.0",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "16.0.0",
     "redux-immutable-state-invariant": "2.0.0"

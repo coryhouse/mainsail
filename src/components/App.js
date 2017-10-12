@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
+import UserSearchContainer from "./UserSearchContainer";
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
-        Hello world
+        <UserSearchContainer/>
       </div>
     );
   }

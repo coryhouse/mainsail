@@ -6,5 +6,5 @@ import { mount, shallow } from "enzyme";
 
 it("renders without crashing", () => {
   const div = document.createElement("root");
-  ReactDOM.render(<App users={[]} actions={{}} />, div);
+  ReactDOM.render(<App />, div);
 });
