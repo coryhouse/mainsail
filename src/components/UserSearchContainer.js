@@ -10,13 +10,17 @@ class UserSearchContainer extends Component {
     super(props);
 
     this.state = {
-      firstName: '',
+      firstName: 'FER%',
       lastName: ''
     };
   }
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
+  };
+
+  handleClear = () => {
+    this.setState({lastName: '', firstName: ''});
   };
 
   handleSearchRequest = (event) => {
@@ -36,6 +40,7 @@ class UserSearchContainer extends Component {
         <UserSearch
           onSearch={this.handleSearchRequest}
           onChange={this.handleChange}
+          onClear={this.handleClear}
           firstName={firstName}
           lastName={lastName}
         />
