@@ -1,43 +1,55 @@
 import React from "react";
 import "./App.css";
-import HomePage from './pages/HomePage';
+import HomePage from "./pages/HomePage";
 import UserSearchPage from "./pages/UserSearchPage";
 import UserPage from "./pages/UserPage";
+import DynamicImportExamplePage from "./pages/DynamicImportExamplePage";
+import LazyLoadedHeavyComponentExamplePage from "./pages/LazyLoadedHeavyComponentExamplePage";
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Switch,
   Redirect
-} from 'react-router-dom';
+} from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      redirect: false
-    }
-  }
-
   render() {
     return (
       <Router>
         <div className="App">
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/search">Search</Link></li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
+            <li>
+              <Link to="/dynamic-import">Dynamic import example</Link>
+            </li>
+            <li>
+              <Link to="/lazy-load-react">
+                Lazy loaded React component example
+              </Link>
+            </li>
           </ul>
 
-          {this.state.redirect && <Redirect from="/searchold" to="/search" /> }
-
           <Switch>
-            <Route path="/" exact component={HomePage}/>
-            <Route path="/search" component={UserSearchPage}/>
-            <Route path="/user/:id" component={UserPage}/>
-            <Route component={HomePage}/>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/search" component={UserSearchPage} />
+            <Redirect from="/searchold" to="/search" />
+            <Route path="/user/:id" component={UserPage} />
+            <Route
+              path="/dynamic-import"
+              component={DynamicImportExamplePage}
+            />
+            <Route
+              path="/lazy-load-react"
+              component={LazyLoadedHeavyComponentExamplePage}
+            />
+            <Route component={HomePage} />
           </Switch>
-          
         </div>
       </Router>
     );

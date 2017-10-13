@@ -4,8 +4,10 @@
   "private": true,
   "proxy": "http://t-mq1-lt2-mvmqf.twlab.int:8080/",
   "dependencies": {
+    "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-loadable": "^5.2.2",
     "react-redux": "5.0.5",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
