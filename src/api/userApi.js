@@ -12,7 +12,7 @@ export function search(searchCriteria) {
     body: JSON.stringify(searchCriteria)
   };
 
-  return fetch('Regaatta/rest/searchService/findAppUsers', myInit).then( response => {
+  return fetch('Regatta/rest/searchService/findAppUsers', myInit).then( response => {
     console.log(response);
     return response.json();
   }).catch( error => {

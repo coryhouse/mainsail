@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import UserSearch from "./UserSearch";
-import UserList from './UserList';
+import UserSearch from "../UserSearch";
+import UserList from '../UserList';
 import { connect } from "react-redux";
-import * as actions from "../actions/userSearchActions";
+import * as actions from "../../actions/userSearchActions";
 import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
-import { User } from '../types';
+import { User } from '../../types';
 
-export class UserSearchContainer extends Component {
+export class UserSearchPage extends Component {
   constructor(props) {
     super(props);
 
@@ -53,7 +53,7 @@ export class UserSearchContainer extends Component {
   }
 }
 
-UserSearchContainer.propTypes = {
+UserSearchPage.propTypes = {
   users: PropTypes.arrayOf(User).isRequired,
   actions: PropTypes.shape(
     {
@@ -76,4 +76,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserSearchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UserSearchPage);
