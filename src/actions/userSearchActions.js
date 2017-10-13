@@ -9,9 +9,10 @@ export function userSearchSuccess(users) {
 export function searchUsers(searchCriteria) {
   return function(dispatch) {
     search(searchCriteria).then( results => {
-      //TODO: Pluck array of users out of results
       const users = results;
       return dispatch(userSearchSuccess(users));
-    })
+    }).catch( error => {
+      return alert(error);
+    });
   };
 }
