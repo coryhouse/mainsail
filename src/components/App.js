@@ -21,7 +21,7 @@ class App extends React.Component {
           
           <Route path="/" exact component={HomePage}/>
           <Route path="/search" component={UserSearchPage}/>
-          <Route path="/user" component={UserPage}/>
+          <Route path="/user/:id" component={UserPage}/>
         </div>
       </Router>
     );

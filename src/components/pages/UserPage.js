@@ -1,30 +1,60 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { User } from '../../types';
+import * as actions from '../../actions/userSearchActions';
+import { bindActionCreators } from 'redux';
 
 export class UserPage extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params;
+
+    if (!this.props.user) {
+      this.props.actions.searchUsers({ userID: id });
+    }
+  }
+
   render() {
-    const {firstName, lastName} = this.props.user;
+    const { id } = this.props.match.params;
+    const { user } = this.props;
 
     return (
       <div>
-        { firstName} {lastName}
+        {id}
+        <br />
+        {user && (
+          <div>
+            {user.firstName}
+            <br />
+            {user.lastName}
+            <br />
+          </div>
+        )}
       </div>
-    )
+    );
   }
 }
 
 UserPage.propTypes = {
-  user: PropTypes.shape(User).isRequired
+  match: PropTypes.object.isRequired
 };
 
 // Connect specific Redux store data to component above
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  const { id } = ownProps.match.params;
   return {
-      // TODO: Get proper user from Redux store based on URL param
-    user: {firstName: 'test', lastName: 'user'}
+    user:
+      state.users.length
+        ? state.users.find(u => {
+            return u.userID === id;
+          })
+        : null
   };
 }
 
-export default connect(mapStateToProps)(UserPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
